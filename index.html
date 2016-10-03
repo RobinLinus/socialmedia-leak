@@ -19,18 +19,21 @@
 
 <body>
     <section>
-        <h1>Your Social Media Fingerprint</h1>
+        <h1>On what platforms are you logged in?</h1>
+        <h2>Explanation</h2>
+        <p>
+            The login page will redirect to the favicon if the user is already logged in, or it will serve a regular HTML page if the user is not. So, the script creates an (invisible) &lt;img&gt; element for every website which points to the login page (which might redirect to the favicon). If it receives an image, the user is already logged in and the onLoad() callback will fire. Otherwise, it will get an HTML page, so the onError() callback will fire. It could work with any image on the website, not just the favicon.
+        </p>
+        <p>
+            Though the redirect works only with images hosted on the same domain and the favicon was is the only image hosted on twitter.com, on facebook.com, or on most of the other domains.
+        </p>
+    </section>
+    <section>
+        <h2>Demo</h2>
         <h3>Logged In</h3>
         <ul id="loggedIn"></ul>
         <h3>Not Logged In</h3>
         <ul id="notLoggedIn"></ul>
-        <h2>Explanation</h2>
-        <p>
-            The login page will redirect to the favicon if the user is already logged in, or it will serve a regular HTML page if the user is not. So, the script creates an (invisible) <pre><img></pre> element for every website which points to the login page (which might redirect to the favicon). If it receives an image, the user is already logged in and the onLoad() callback will fire. Otherwise, it will get an HTML page, so the onError() callback will fire. It could work with any image on the website, not just the favicon.
-        </p>
-        <p>
-            Though the redirect works only with images hosted on the same domain. The favicon was the only image I could find on twitter.com, or facebook.com.
-        </p>
     </section>
     <script>
     var leakSocialMediaAccounts = function() {
