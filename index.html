@@ -25,7 +25,7 @@
             The login page will redirect to the favicon if the user is already logged in, or it will serve a regular HTML page if the user is not. So, the script creates an (invisible) &lt;img&gt; element for every website which points to the login page (which might redirect to the favicon). If it receives an image, the user is already logged in and the onLoad() callback will fire. Otherwise, it will get an HTML page, so the onError() callback will fire. It could work with any image on the website, not just the favicon.
         </p>
         <p>
-            Though the redirect works only with images hosted on the same domain and the favicon was is the only image hosted on twitter.com, on facebook.com, or on most of the other domains.
+            Though the redirects work only with images hosted on the same domain and the favicon.ico is the only(?) image hosted on twitter.com, on facebook.com, or on most of the other domains.
         </p>
     </section>
     <section>
