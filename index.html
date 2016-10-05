@@ -11,48 +11,264 @@
     body {
         background-color: rgb(246, 246, 239);
         color: #030303;
+        padding-top: 24px;
+        margin: 0;
         font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
-        line-height: 21px;
-        padding-top: 40px;
+        font-size: 14px;
     }
     
-    section {
+    h1 {
+        font-size: 34px;
+        font-weight: 400;
+        letter-spacing: -.01em;
+        line-height: 40px;
+    }
+    
+    h2 {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 28px;
+    }
+    
+    h3 {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+    
+    h4 {
+        margin-bottom: 0;
+        margin-top: 24px;
+    }
+    
+    p {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-weight: 400;
+        line-height: 20px;
+    }
+    
+    ul {
+        line-height: 20px;
+    }
+    
+    .content {
         max-width: 720px;
         margin: 0 auto;
         padding: 8px;
     }
-    a{
+    
+    section {
+        margin-top: 24px;
+    }
+    
+    a {
         text-decoration: none;
     }
     
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    .demo {
+        min-height: 480px;
+    }
+    
+    .demo h3 {
+        margin-top: 24px;
+        margin-bottom: 6px;
+    }
+    
+    .demo > span {
+        text-align: center;
+    }
+    
+    .network {
+        padding: 8px;
+        background: white;
+        margin: 4px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        display: inline-flex;
+        align-items: center;
+        width: 152px;
+    }
+    
+    .network img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    
+    .network {
+        color: #030303;
+        text-decoration: none !important;
+    }
+    
+    footer {
+        background: #424242;
+        margin-top: 64px;
+        padding: 16px;
+        font-size: 16px;
+        text-align: center;
+        font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+        color: white;
+        cursor: pointer;
+    }
+    
+    footer:hover {
+        text-decoration: underline;
+    }
+    
+    pre,
+    code {
+        white-space: pre-wrap;
+        /* css-3 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        /* Internet Explorer 5.5+ */
+    }
+    
+    @media only screen and (max-device-width: 480px) {
+        .content {
+            padding-top: 4px;
+        }
+        .network {
+            width: 128px;
+        }
+    }
     </style>
 </head>
 
 <body>
-    <section>
-        <h1>On what platforms are you logged in?</h1>
-        <h2>Explanation</h2>
-        <p>
-            The login page will redirect to the favicon if the user is already logged in, or it will serve a regular HTML page if the user is not. So, the script creates an (invisible) &lt;img&gt; element for every website which points to the login page (which might redirect to the favicon). If it receives an image, the user is already logged in and the onLoad() callback will fire. Otherwise, it will get an HTML page, so the onError() callback will fire. It could work with any image on the website, not just the favicon.
-        </p>
-        <p>
-            Though the redirects work only with images hosted on the same domain and the favicon.ico is the only(?) image hosted on twitter.com, on facebook.com, or on most of the other domains.
-        </p>
-    </section>
-    <section>
-        <h2>Demo</h2>
-        <h3>Logged In</h3>
-        <ul id="loggedIn"></ul>
-        <h3>Not Logged In</h3>
-        <ul id="notLoggedIn"></ul>
-    </section>
+    <div class="content">
+        <h1>Your Social Media Fingerprint</h1>
+        <section>
+            <p>
+                Without your consent most major web platforms leak whether you are logged in. This allows any website to detect on which platforms where you're signed up. Since there are lots of platforms with specific demographics an attacker could reason about your personality, too.
+            </p>
+        </section>
+        <section class="demo">
+            <h2>Demonstration</h2>
+            <span>
+                <p>
+                    <h3>You are logged in:</h3>
+                    <div id="loggedIn">
+                        No platform <br>(or you're using something like Privacy Badger)
+                    </div>
+                </p>
+                <p>
+                    <h3>You are not logged in:</h3>
+                    <div id="notLoggedIn"></div>
+                </p>
+            </span>
+        </section>
+        <section>
+            <h2>Explanation</h2>
+            <p>
+                For most web platforms there's a way to abuse the login mechanism to detect whether a user is logged in to that service.
+                <br> Although this vulnerability is <a href="http://www.tomanthony.co.uk/blog/detect-visitor-social-networks/" target="_blank">well known for several years</a> most companies <a href="http://webkay.robinlinus.com/clickjacking/redirect-statements.txt">won't fix it</a>.
+            </p>
+            <p>
+                The exploit is pretty simple and actually easy to fix. Let's look at facebook.com to get an idea of how it works:
+                <h4>How does the login redirect mechanism work?</h4>
+                <br> At first we need to understand the login redirect mechanism. Say you're logged in and visit
+            </p>
+            <pre><code>https://www.facebook.com/bookmarks/pages</code></pre>
+            <p>
+                Now if you open this URL in a private tab where you are not logged in, you will get redirected to the login screen with this URL:
+            </p>
+            <pre><code>https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fbookmarks%2Fpages</code></pre> Note the <code>next</code> parameter in the URL: <code>https%3A%2F%2Fwww.facebook.com%2Fbookmarks%2Fpages</code>.
+            <p>
+                That's the URL we came from and it is used to redirect us back there once we're logged in.
+                <br> If we enter the login URL in a browser tab where we are already logged in, we get redirected without asking for a login.
+                <br> So this means:
+            </p>
+            <ul>
+                <li>Logged in:&nbsp;&nbsp;&nbsp;URL returns the resource at the URL in the <code>next</code> parameter</li>
+                <li>Logged out: URL returns the login screen</li>
+            </ul>
+            <h4>Bypass the Same Origin Policy</h4>
+            <p>How does this URL help us? The Same Origin Policy prevents to read the results of this request from any other domain but https://facebook.com...
+                <br>Well, the SOP is strict for HTML pages, but you can request images cross origin! So if the resource in the <code>next</code> parameter would be an image we could read it from our website. It can't be any image though. Facebook checks if the URL in the <code>next</code> parameter starts with <code>https://facebook.com</code>. So we need to find an image on facebook.com. Should be easy, right? Actually it isn't, because facebook hosts almost all images on their CDN servers under the domain <code>fbcdn.net</code>. Though there is one image that you can find on almost every webserver: the <code>favicon.ico</code>!
+                <br> This is how our login URL looks like with the favicon as <code>next</code> parameter:</p>
+            <pre><code>https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico</code></pre> It has a very <a target="_blank" href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico">interesting property</a>:
+            <ul>
+                <li>Logged in:&nbsp;&nbsp;&nbsp;returns the favicon image</li>
+                <li>Logged out: returns the login html</li>
+            </ul>
+            <p> We can use this URL in an <code>&lt;img&gt;</code> tag in our website:</p>
+            <pre><code>&lt;img src="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico"&gt;</code></pre> This <code>&lt;img&gt;</code> tag's property:
+            <ul>
+                <li>Logged in:&nbsp;&nbsp;&nbsp;receives the favicon image, it will load successfully, and the <code>onLoad</code> callback will be fired.</li>
+                <li>Logged out: receives the HTML of the login screen, will fail to load it as an image, and the <code>onError</code> callback will be fired.</li>
+            </ul>
+            This leads to the final exploit:
+            <pre><code>&lt;img onload="alert('logged in to fb')" onerror="alert('not logged in to fb')" src="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico"&gt;</code></pre>
+            <h4>Other Platforms</h4>
+            <p>
+                This mechanism works for almost all major web platforms, because they all have a redirect parameter in their login endpoint and they need to host their favicon on their domain.
+            </p>
+        </section>
+        <section>
+            <h2>Protection</h2>
+            You can install a browser plugin like <a href="https://www.google.de/search?q=privacy+badger" target="_blank">Privacy Badger</a> to protect yourself from this attack.
+        </section>
+        <section>
+            <h2>Help to solve the issue!</h2>
+            <p>
+                The companies won't fix the issue, because the risk for their own service is relatively low. Though so many platforms are vulnerable to this, it becomes a real privacy issue. Please help to raise awareness to push the companies to fix the issue.
+            </p>
+            <ul>
+                <li><a target="_blank" href="https://twitter.com/home?status=https%3A//robinlinus.github.io/socialmedia-leak">Share this demo on Twitter</a></li>
+                <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//robinlinus.github.io/socialmedia-leak">Share this demo on Facebook</a></li>
+                <li><a target="_blank" href="https://plus.google.com/share?url=https%3A//robinlinus.github.io/socialmedia-leak">Share this demo on Google+</a></li>
+                <li><a target="_blank" href="https://github.com/RobinLinus/socialmedia-leak">Star the project on Github</a></li>
+            </ul>
+            <p>If you find more web platforms that are vulnerable to this attack, <a href="https://github.com/RobinLinus/socialmedia-leak/issues">please file an issue to add it.</a> The more complete this list is, the bigger the issue and the higher the pressure for platforms to fix it.
+            </p>
+        </section>
+    </div>
+    <a href="http://twitter.com/robin_linus" target="_blank" id="about">
+        <footer>
+            Built with ♥ by Robin Linus
+        </footer>
+    </a>
     <script src="socialmedia-leak.js"></script>
     <script>
-    function displayResult(text, loggedIn, url) {
+    var isFirstLoggedIn = true;
+
+    function displayResult(network, loggedIn) {
         var id = loggedIn ? 'loggedIn' : 'notLoggedIn';
-        document.getElementById(id).innerHTML += '<li><a href="' + url + '" target="_blank">' + text + '</a></li>';
+        var favicon = faviconUri(network);
+        var url = network.domain + network.redirect;
+        var el = '<a target="_blank" href="' + url + '" target="_blank" class=network><img src=' + favicon + '><span>' + network.name + '</span></a>';
+        if (loggedIn && isFirstLoggedIn) {
+            isFirstLoggedIn = false;
+            document.getElementById(id).innerHTML = el;
+        } else {
+            document.getElementById(id).innerHTML += el;
+        }
     }
     leakSocialMediaAccounts(displayResult);
+
+    function faviconUri(network) {
+        var favicon = network.domain + '/favicon.ico';
+        if (network.name === 'Dropbox') {
+            favicon = 'https://www.dropbox.com/static/images/favicon.ico';
+        }
+        if (network.name === 'Youtube') {
+            favicon = 'https://www.youtube.com/favicon.ico';
+        }
+        if (network.name === 'Gmail') {
+            favicon = 'https://mail.google.com/favicon.ico';
+        }
+        return favicon;
+    }
     </script>
 </body>
 
