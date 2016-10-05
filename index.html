@@ -176,7 +176,7 @@
                 <p>
                     <h3>You are logged in to:</h3>
                     <div id="loggedIn">
-                        No platform <br>(or you're using something like Privacy Badger)
+                        <h4>No platform</h4>(or you're using something like Privacy Badger)
                     </div>
                 </p>
                 <p>
@@ -202,12 +202,12 @@
             </p>
             <pre><code>https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fbookmarks%2Fpages</code></pre> Note the <code>next</code> parameter in the URL: <code>https%3A%2F%2Fwww.facebook.com%2Fbookmarks%2Fpages</code>.
             <p>
-                That's the URL we came from and it is used to redirect us back there once we're logged in.
-                <br> If we enter the login URL in a browser tab where we are already logged in, we get redirected without getting prompted to login. So this means:
+                That's the URL we came from and it is used to redirect us back there once we've logged in.
+                <br>But if we enter the login URL in a browser tab where we are already logged in, we get redirected without getting prompted to login. Therefore this URL returns:
             </p>
             <ul>
-                <li>Logged in:&nbsp;&nbsp;&nbsp;URL returns the resource at the URL in the <code>next</code> parameter</li>
-                <li>Logged out: URL returns the login screen</li>
+                <li>If logged in:&nbsp;&nbsp;&nbsp;the resource at the URL in the <code>next</code> parameter</li>
+                <li>If logged out: the login screen</li>
             </ul>
             <h4>Bypass the Same Origin Policy</h4>
             <p>How does this URL help us? The Same Origin Policy prevents to read the results of this request from any other domain but https://facebook.com...
@@ -216,12 +216,12 @@
             <pre><code>https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico</code></pre> It has a very <a target="_blank" href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico">interesting property</a>:
             <ul>
                 <li>Logged in:&nbsp;&nbsp;&nbsp;returns the favicon image</li>
-                <li>Logged out: returns the login html</li>
+                <li>Logged out: returns the HTML of the login page</li>
             </ul>
             <p> We can use this URL in an <code>&lt;img&gt;</code> tag in our website:</p>
             <pre><code>&lt;img src="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico"&gt;</code></pre> This <code>&lt;img&gt;</code> tag's property:
             <ul>
-                <li>Logged in:&nbsp;&nbsp;&nbsp;receives the favicon image, it will load successfully, and the <code>onLoad</code> callback will be fired.</li>
+                <li>Logged in:&nbsp;&nbsp;&nbsp;receives the favicon image, will load it successfully, and the <code>onLoad</code> callback will be fired.</li>
                 <li>Logged out: receives the HTML of the login screen, will fail to load it as an image, and the <code>onError</code> callback will be fired.</li>
             </ul>
             This leads to the final exploit:
@@ -293,14 +293,14 @@
     }
     </script>
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-85165266-1', 'auto');
-  ga('send', 'pageview');
-</script>
+      ga('create', 'UA-85165266-1', 'auto');
+      ga('send', 'pageview');
+    </script>
 </body>
 
 </html>
