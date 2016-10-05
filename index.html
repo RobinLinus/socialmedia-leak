@@ -24,7 +24,7 @@
     <meta name="twitter:image" content="http://ubercookie.robinlinus.com/ubercookie-logo-large.png" />
     <meta name="twitter:description" content="Without your consent most major web platforms leak whether you are logged in. This allows any website to detect on which platforms you're signed up. Since there are lots of platforms with specific demographics an attacker could reason about your personality, too.">
     <meta name="twitter:creator:id" content="4675481071">
-    <meta name="author" content="Robin Linus" />    
+    <meta name="author" content="Robin Linus" />
     <style type="text/css">
     body {
         background-color: rgb(246, 246, 239);
@@ -203,8 +203,7 @@
             <pre><code>https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fbookmarks%2Fpages</code></pre> Note the <code>next</code> parameter in the URL: <code>https%3A%2F%2Fwww.facebook.com%2Fbookmarks%2Fpages</code>.
             <p>
                 That's the URL we came from and it is used to redirect us back there once we're logged in.
-                <br> If we enter the login URL in a browser tab where we are already logged in, we get redirected without asking for a login.
-                <br> So this means:
+                <br> If we enter the login URL in a browser tab where we are already logged in, we get redirected without getting prompted to login. So this means:
             </p>
             <ul>
                 <li>Logged in:&nbsp;&nbsp;&nbsp;URL returns the resource at the URL in the <code>next</code> parameter</li>
@@ -212,8 +211,8 @@
             </ul>
             <h4>Bypass the Same Origin Policy</h4>
             <p>How does this URL help us? The Same Origin Policy prevents to read the results of this request from any other domain but https://facebook.com...
-                <br>Well, the SOP is strict for HTML pages, but you can request images cross origin! So if the resource in the <code>next</code> parameter would be an image we could read it from our website. It can't be any image though. Facebook checks if the URL in the <code>next</code> parameter starts with <code>https://facebook.com</code>. So we need to find an image on facebook.com. Should be easy, right? Actually it isn't, because facebook hosts almost all images on their CDN servers under the domain <code>fbcdn.net</code>. Though there is one image that you can find on almost every webserver: the <code>favicon.ico</code>!
-                <br> This is how our login URL looks like with the favicon as <code>next</code> parameter:</p>
+                <br>Well, the SOP is strict for HTML pages, but you can request images cross origin! So if the resource in the <code>next</code> parameter would be an image we could read it from our website. It can't be any image though. Facebook checks if the URL in the <code>next</code> parameter starts with <code>https://facebook.com</code>. So we need to find an image on facebook.com. Should be easy, right? Actually it isn't, because facebook hosts almost all images on their CDN servers under the domain <code>fbcdn.net</code>. Though there is one image that you can find on almost every webserver: the good old <code>favicon.ico</code>!
+                <br>This is how our login URL looks like with the favicon as <code>next</code> parameter:</p>
             <pre><code>https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico</code></pre> It has a very <a target="_blank" href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico">interesting property</a>:
             <ul>
                 <li>Logged in:&nbsp;&nbsp;&nbsp;returns the favicon image</li>
@@ -233,8 +232,13 @@
             </p>
         </section>
         <section>
-            <h2>Protection</h2>
-            You can install a browser plugin like <a href="https://www.google.de/search?q=privacy+badger" target="_blank">Privacy Badger</a> to protect yourself from this attack.
+            <h2>Further Attacks</h2>
+            <p>
+                This attack could be a step of a worse attack such as <a target="_blank" href="https://en.wikipedia.org/wiki/Clickjacking">Clickjacking</a>, <a target="_blank" href="http://sakurity.com/blog/2015/03/10/Profilejacking.html">Profilejacking</a>, or <a target="_blank" href="https://en.wikipedia.org/wiki/Phishing">Phising</a> where it is crucial to know if a victim is logged in to a service.
+            </p>
+        </section>
+        <section>
+            <h2>Protection</h2> You can install a browser plugin like <a href="https://www.google.de/search?q=privacy+badger" target="_blank">Privacy Badger</a> to protect yourself from this attack.
         </section>
         <section>
             <h2>Help to solve the issue!</h2>

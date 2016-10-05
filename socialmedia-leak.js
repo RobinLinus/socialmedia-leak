@@ -37,7 +37,7 @@ var leakSocialMediaAccounts = function(callback) {
         name: "Flickr"
     }, {
         domain: "https://www.spotify.com",
-        redirect: "/de/login/?forward_url=https%3A%2F%2Fwww.spotify.com%2Ffavicon.ico",
+        redirect: "/en/login/?forward_url=https%3A%2F%2Fwww.spotify.com%2Ffavicon.ico",
         name: "Spotify"
     }, {
         domain: "https://www.reddit.com",
