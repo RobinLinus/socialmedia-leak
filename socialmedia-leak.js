@@ -111,6 +111,18 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://courses.edx.org",
         redirect: "/login?next=/favicon.ico",
         name: "EdX"
+    }, {
+        domain: "https://www.spiegel.de",
+        redirect: "/meinspiegel/login.html?backUrl=%2Ffavicon.ico",
+        name: "Spiegel Online"
+    }, {
+        domain: "http://www.youporn.com",
+        redirect: "/login/?previous=/favicon.ico",
+        name: "YouPorn"
+    }, {
+        domain: "https://subscribe.washingtonpost.com/loginregistration/index.html#/register/group/default?action=login&destination=https:%2F%2Fwashingtonpost.com%2Ffavicon.ico",
+        redirect: "/login/?previous=/favicon.ico",
+        name: "Washington Post"
     }];
 
     //     Do not work because they do not redirect immediately
@@ -122,6 +134,9 @@ var leakSocialMediaAccounts = function(callback) {
     //         name: "Slack"
     //     }, {
     //         url: "https://tablet.www.linkedin.com/splash?redirect_url=https%3A%2F%2Fwww.linkedin.com%2Ffavicon.ico%3Fgid%3D54384%26trk%3Dfulpro_grplogo",
+    //         name: "Linkedin"
+    //     }, {
+    //         url: "https://slack.com/checkcookie?redir=https%3A%2F%2Fcapira.slack.com%2Ffavicon.ico%23%00asd",
     //         name: "Linkedin"
     //     }
 

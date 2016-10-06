@@ -211,7 +211,7 @@
             </ul>
             <h4>Bypass the Same Origin Policy</h4>
             <p>How does this URL help us? The Same Origin Policy prevents to read the results of this request from any other domain but https://facebook.com...
-                <br>Well, the SOP is strict for HTML pages, but you can request images cross origin! So if the resource in the <code>next</code> parameter would be an image we could read it from our website. It can't be any image though. Facebook checks if the URL in the <code>next</code> parameter starts with <code>https://facebook.com</code>. So we need to find an image on facebook.com. Should be easy, right? Actually it isn't, because facebook hosts almost all images on their CDN servers under the domain <code>fbcdn.net</code>. Though there is one image that you can find on almost every webserver: the good old <code>favicon.ico</code>!
+                <br>Well, the SOP is strict for HTML pages, but it allows to receive images from other origins! So if the resource in the <code>next</code> parameter would be an image we could read it from our website. It can't be any image though. Facebook checks if the URL in the <code>next</code> parameter starts with <code>https://facebook.com</code>. So we need to find an image on facebook.com. Should be easy, right? Actually it isn't, because facebook hosts almost all images on their CDN servers under the domain <code>fbcdn.net</code>. Though there is one image that you can find on almost every webserver: the good old <code>favicon.ico</code>!
                 <br>This is how our login URL looks like with the favicon as <code>next</code> parameter:</p>
             <pre><code>https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico</code></pre> It has a very <a target="_blank" href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico">interesting property</a>:
             <ul>
@@ -228,7 +228,7 @@
             <pre><code>&lt;img onload="alert('logged in to fb')" onerror="alert('not logged in to fb')" src="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico"&gt;</code></pre>
             <h4>Other Platforms</h4>
             <p>
-                This mechanism works for almost all major web platforms, because they all have a redirect parameter in their login endpoint and they need to host their favicon on their domain.
+                This mechanism works for almost all major web platforms, because they all have a redirect parameter in their login endpoint and they need to host their favicon on their domain (<a target="_blank" href="https://en.wikipedia.org/wiki/Favicon#Limitations_and_criticism">bc of browser compatibility, and of the technical debt of the former lack of standards</a>).
             </p>
         </section>
         <section>
@@ -249,7 +249,7 @@
                 <li><a target="_blank" href="https://twitter.com/home?status=https%3A//robinlinus.github.io/socialmedia-leak">Share this demo on Twitter</a></li>
                 <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//robinlinus.github.io/socialmedia-leak">Share this demo on Facebook</a></li>
                 <li><a target="_blank" href="https://plus.google.com/share?url=https%3A//robinlinus.github.io/socialmedia-leak">Share this demo on Google+</a></li>
-                <li><a target="_blank" href="https://github.com/RobinLinus/socialmedia-leak">Star the project on Github</a></li>
+                <li><a target="_blank" href="https://github.com/RobinLinus/socialmedia-leak">Star this project on Github</a></li>
             </ul>
             <p>If you find more web platforms that are vulnerable to this attack, <a href="https://github.com/RobinLinus/socialmedia-leak/issues">please file an issue to add it.</a> The more complete this list is, the bigger the issue and the higher the pressure for platforms to fix it.
             </p>
