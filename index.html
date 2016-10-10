@@ -188,7 +188,7 @@
             <h2>Explanation</h2>
             <p>
                 For most web platforms there's a way to abuse the login mechanism to detect whether a user is logged in to that service.
-                <br> Although this vulnerability is <a href="http://www.tomanthony.co.uk/blog/detect-visitor-social-networks/" target="_blank">well known for several years</a> most companies <a href="http://webkay.robinlinus.com/clickjacking/redirect-statements.txt">won't fix it</a>.
+                <br> Although this vulnerability is <a href="http://www.tomanthony.co.uk/blog/detect-visitor-social-networks/" target="_blank">well known</a> <a href="http://blog.jeremiahgrossman.com/2008/03/login-detection-whose-problem-is-it.html" target="_blank"> for several years</a> most companies <a href="http://webkay.robinlinus.com/clickjacking/redirect-statements.txt">won't fix it</a>.
             </p>
             <p>
                 The exploit is pretty simple and actually easy to fix. Let's look at facebook.com to get an idea of how it works:
@@ -229,11 +229,15 @@
             <p>
                 This mechanism works for almost all major web platforms, because they all have a redirect parameter in their login endpoint and they need to host their favicon on their domain (<a target="_blank" href="https://en.wikipedia.org/wiki/Favicon#Limitations_and_criticism">bc of browser compatibility, and of the technical debt of the former lack of standards</a>).
             </p>
+            <h4>Updates</h4>
+            <p>
+                2016/10/07: Instagram removed the favicon from their root domain. They  
+            </p>
         </section>
         <section>
             <h2>Further Attacks</h2>
             <p>
-                This attack could be a step of a worse attack such as <a target="_blank" href="https://en.wikipedia.org/wiki/Clickjacking">Clickjacking</a>, <a target="_blank" href="http://sakurity.com/blog/2015/03/10/Profilejacking.html">Profilejacking</a>, or <a target="_blank" href="https://en.wikipedia.org/wiki/Phishing">Phising</a> where it is crucial to know if a victim is logged in to a service.
+                This attack could be a step of a worse attack such as <a target="_blank" href="https://0xsobky.github.io/novel-deanonymization-techniques/">deanonymization techniques</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Clickjacking">Clickjacking</a>, <a target="_blank" href="http://sakurity.com/blog/2015/03/10/Profilejacking.html">Profilejacking</a>, or <a target="_blank" href="https://en.wikipedia.org/wiki/Phishing">Phising</a> where it is crucial to know if a victim is logged in to a service.
             </p>
         </section>
         <section>

