@@ -111,11 +111,13 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://www.spiegel.de",
         redirect: "/meinspiegel/login.html?backUrl=%2Ffavicon.ico",
         name: "Spiegel Online"
-    }, {
-        domain: "http://www.youporn.com",
-        redirect: "/login/?previous=/favicon.ico",
-        name: "YouPorn"
-    }, {        
+    },
+    //  {
+    //     domain: "http://www.youporn.com",
+    //     redirect: "/login/?previous=/favicon.ico",
+    //     name: "YouPorn"
+    // }, 
+    {        
         domain: "https://slack.com",
         redirect: "/checkcookie?redir=https%3A%2F%2Fslack.com%2Ffavicon.ico%23",
         name: "Slack"
