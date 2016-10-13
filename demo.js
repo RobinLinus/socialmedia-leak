@@ -49,7 +49,7 @@ var leakSocialMediaAccounts = function(callback) {
         name: "Expedia"
     }, {
         domain: "https://www.dropbox.com",
-        redirect: "/login?cont=https%3A%2F%2Fwww.dropbox.com%2Fstatic%2Fimages%2Ficons%2Ficon_spacer-vflN3BYt2.gif",
+        redirect: "/login?cont=https%3A%2F%2Fwww.dropbox.com%2Fstatic%2Fimages%2Fabout%2Fdropbox_logo_glyph_2015.svg",
         name: "Dropbox"
     }, {
         domain: "https://www.amazon.com",
