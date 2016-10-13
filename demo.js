@@ -145,6 +145,10 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://secure.meetup.com",
         redirect: "/login/?returnUri=https%3A%2F%2Fwww.meetup.com%2Fimg%2Fajax_loader_trans.gif",
         name: "Meetup"
+    }, {        
+        domain: "https://bitbucket.org",
+        redirect: "/account/signin/?next=/favicon.ico",
+        name: "BitBucket"
     }];
 
     //     Do not work because they do not redirect immediately or fixed the issue
