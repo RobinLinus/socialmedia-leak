@@ -129,6 +129,22 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://www.paypal.com",
         redirect: "/signin?returnUri=https://t.paypal.com/ts?v=1.0.0",
         name: "Paypal"
+    }, {
+        domain: "https://500px.com",
+        redirect: "/login?r=%2Ffavicon.ico",
+        name: "500px"
+    }, {
+        domain: "https://www.airbnb.com",
+        redirect: "/login?redirect_params[action]=favicon.ico&redirect_params[controller]=home",
+        name: "Airbnb"
+    }, {
+        domain: "https://disqus.com",
+        redirect: "/profile/login/?next=https%3A%2F%2Fdisqus.com%2Ffavicon.ico",
+        name: "Disqus"
+    }, {
+        domain: "https://secure.meetup.com",
+        redirect: "/login/?returnUri=https%3A%2F%2Fwww.meetup.com%2Fimg%2Fajax_loader_trans.gif",
+        name: "Meetup"
     }];
 
     //     Do not work because they do not redirect immediately or fixed the issue
