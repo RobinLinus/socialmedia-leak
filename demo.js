@@ -127,6 +127,10 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://www.paypal.com",
         redirect: "/signin?returnUri=https://t.paypal.com/ts?v=1.0.0",
         name: "Paypal"
+    }, {        
+        domain: "https://bitbucket.org",
+        redirect: "/account/signin/?next=/favicon.ico",
+        name: "BitBucket"
     }];
 
     //     Do not work because they do not redirect immediately or fixed the issue
