@@ -149,6 +149,10 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://bitbucket.org",
         redirect: "/account/signin/?next=/favicon.ico",
         name: "BitBucket"
+    }, {        
+        domain: "https://secure.indeed.com",
+        redirect: "/account/login?continue=%2ffavicon.ico",
+        name: "Indeed"
     }];
 
     //     Do not work because they do not redirect immediately or fixed the issue
