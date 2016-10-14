@@ -79,11 +79,13 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://www.academia.edu",
         redirect: "/login?cp=/favicon.ico&cs=www",
         name: "Academia.edu"
-    }, {
-        domain: "https://stackoverflow.com",
-        redirect: "/users/login?ssrc=head&returnurl=http%3a%2f%2fstackoverflow.com%2ffavicon.ico",
-        name: "Stack Overflow"
-    }, , {
+    },
+    //  {
+    //     domain: "https://stackoverflow.com",
+    //     redirect: "/users/login?ssrc=head&returnurl=http%3a%2f%2fstackoverflow.com%2ffavicon.ico",
+    //     name: "Stack Overflow"
+    // },
+     {
         domain: "https://accounts.google.com",
         redirect: "/ServiceLogin?service=blogger&hl=de&passive=1209600&continue=https://www.blogger.com/favicon.ico",
         name: "Blogger"
