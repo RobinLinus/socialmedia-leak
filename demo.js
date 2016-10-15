@@ -155,6 +155,10 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://secure.indeed.com",
         redirect: "/account/login?continue=%2ffavicon.ico",
         name: "Indeed"
+    }, {        
+        domain: "https://vk.com",
+        redirect: "/login?u=2&to=ZmF2aWNvbi5pY28-",
+        name: "VK"
     }];
 
     //     Do not work because they do not redirect immediately or fixed the issue
