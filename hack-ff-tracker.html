@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script>
+'use strict';
+var frame = document.createElement('iframe');
+frame.onload = function() {
+    alert('logged out');
+}
+frame.onerror = function() {
+    alert('logged in');
+}
+frame.src = "https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico%3F_rdr%3Dp"
+document.body.appendChild(frame)
+</script>
+</body>
+</html>
