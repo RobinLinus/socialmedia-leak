@@ -109,11 +109,13 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://courses.edx.org",
         redirect: "/login?next=/favicon.ico",
         name: "EdX"
-    }, {
-        domain: "https://www.spiegel.de",
-        redirect: "/meinspiegel/login.html?backUrl=%2Ffavicon.ico",
-        name: "Spiegel Online"
-    },
+    }, 
+
+    // {
+    //     domain: "https://www.spiegel.de",
+    //     redirect: "/meinspiegel/login.html?backUrl=%2Ffavicon.ico",
+    //     name: "Spiegel Online"
+    // },
     //  {
     //     domain: "http://www.youporn.com",
     //     redirect: "/login/?previous=/favicon.ico",
