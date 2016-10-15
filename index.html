@@ -169,6 +169,9 @@
             <p>
                 Without your consent most major web platforms leak whether you are logged in. This allows any website to detect on which platforms you're signed up. Since there are lots of platforms with specific demographics an attacker could reason about your personality, too.
             </p>
+            <p id="ff" style="display:none;">
+                If you see broken images like this: <img src="https://facebook.com/favicon.ico" onload="document.getElementById('ff').remove()" onerror="document.getElementById('ff').style='display:block;'"> instead of a logo, the login detection won't work for this platforms because your browser is blocking requests to their domain. If you're using Firefox <a href="#updates">read the updates.</a>
+            </p>
         </section>
         <section class="demo">
             <h2>Demonstration</h2>
@@ -176,7 +179,9 @@
                 <p>
                     <h3>You are logged in to:</h3>
                     <div id="loggedIn">
-                        <h4>No platform</h4>(or maybe you've diabled third party cookies, or you are using something like Privacy Badger?)
+                        <h2>No platform</h2>
+                        <p>(or maybe you've diabled third party cookies, or you are using something like Privacy Badger?)</p>
+                        <br><br><br>
                     </div>
                 </p>
                 <p>
@@ -230,16 +235,19 @@
             <p>
                 This mechanism works for almost all major web platforms, because they all have a redirect parameter in their login endpoint and they need to host their favicon on their domain (<a target="_blank" href="https://en.wikipedia.org/wiki/Favicon#Limitations_and_criticism">bc of browser compatibility, and of the technical debt of the former lack of standards</a>).
             </p>
-            <h4>Updates</h4>
+            <h4 id="updates">Updates</h4>
             <p>
                 <ul>
                     <li>2016/10/07: Instagram removed the favicon from their root domain and host their favicon on their CDN now.</li>
                     <li>2016/10/14: <a target="_blank" href="http://meta.stackoverflow.com/questions/336225/so-should-stop-leaking-information-to-other-websites-about-whether-we-are-logged"> Stackoverflow has fixed the issue.</a></li>
-                    <li>2016/10/14: It looks like firefox has fixed the issue at least for the major networks with their <a target="_blank" href="https://developer.mozilla.org/en-US/Firefox/Privacy/Tracking_Protection">default tracking protection blacklist</a> (The blacklist comes from <a target="_blank" href="https://disconnect.me/">https://disconnect.me/</a>).<br><br>Console screenshot of the errors when visting socialmedia-leak with current Firefox:
-                    <a target="_blank" href="firefox.png"><img src="firefox.png" style="width:100%"></li></a>
+                    <li>2016/10/14: It looks like Firefox has fixed the issue at least for the major networks with their <a target="_blank" href="https://developer.mozilla.org/en-US/Firefox/Privacy/Tracking_Protection">default tracking protection blacklist</a> (The blacklist comes from <a target="_blank" href="https://disconnect.me/">https://disconnect.me/</a>). 
+                        <br>
+                        <br>Console screenshot of the errors when visting socialmedia-leak with current Firefox:
+                        <a target="_blank" href="firefox.png"><img src="firefox.png" style="width:100%"></a>
+                        Though it probably still works for all platforms where you don't see a broken image <img src="a"> instead of a logo.  
+                    </li>
+
                 </ul>
-                
-                
             </p>
             </p>
         </section>
