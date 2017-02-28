@@ -323,8 +323,9 @@
     function displayResult(network, loggedIn) {
         var id = loggedIn ? 'loggedIn' : 'notLoggedIn';
         var favicon = faviconUri(network);
-        var url = network.domain + network.redirect;
-        var el = '<a target="_blank" href="' + url + '" target="_blank" class=network><img src=' + favicon + '><span>' + network.name + '</span></a>';
+        var logoutLink = network.domain + network.redirectLogout;
+        
+        var el = '<a target="_blank" href="' + logoutLink + '" target="_blank" class=network><img src=' + favicon + '><span>' + network.name + '</span></a>';
         if (loggedIn && isFirstLoggedIn) {
             isFirstLoggedIn = false;
             document.getElementById(id).innerHTML = el;
