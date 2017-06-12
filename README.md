@@ -6,4 +6,4 @@ Without your consent most major web platforms leak whether you are logged in. Th
 
 
 
-This is an open source contribution of [RobinLinus Security, Privacy & Blockchain Consulting](https://robinlinus.github.io)
+This is an open source contribution by [Nimiq: the first browser-based Blockchain & Ecosytem](https://nimiq.com)
