@@ -139,6 +139,10 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://vk.com",
         redirect: "/login?u=2&to=ZmF2aWNvbi5pY28-",
         name: "VK"
+    }, {
+        domain: "https://mail.yandex.ru",
+        redirect: "/?retpath=https://mail.yandex.ru/favicon.ico?666",
+        name: "Yandex"
     }];
 
     platforms.forEach(function(network) {
