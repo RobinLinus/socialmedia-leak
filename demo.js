@@ -89,7 +89,7 @@ var leakSocialMediaAccounts = function(callback) {
         name: "Medium"
     }, {
         domain: "https://news.ycombinator.com",
-        redirect: "/login?goto=favicon.ico%23",
+        redirect: "/login?goto=y18.gif%23",
         name: "Hackernews"
     }, {
         domain: "https://carbonmade.com",
