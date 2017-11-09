@@ -96,10 +96,6 @@ var leakSocialMediaAccounts = function(callback) {
         redirect: "/signin?returnTo=favicon.ico",
         name: "Carbonmade"
     }, {
-        domain: "https://courses.edx.org",
-        redirect: "/login?next=/favicon.ico",
-        name: "EdX"
-    }, {
         domain: "https://slack.com",
         redirect: "/checkcookie?redir=https%3A%2F%2Fslack.com%2Ffavicon.ico%23",
         name: "Slack"
