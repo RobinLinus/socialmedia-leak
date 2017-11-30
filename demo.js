@@ -28,10 +28,6 @@ var leakSocialMediaAccounts = function(callback) {
         redirect: "/login?message=signin_continue&redirect_uri=https%3A%2F%2Fsecure.skype.com%2Ffavicon.ico",
         name: "Skype"
     }, {
-        domain: "https://www.flickr.com",
-        redirect: "/signin/yahoo/?redir=https%3A%2F%2Fwww.flickr.com/favicon.ico",
-        name: "Flickr"
-    }, {
         domain: "https://www.spotify.com",
         redirect: "/en/login/?forward_url=https%3A%2F%2Fwww.spotify.com%2Ffavicon.ico",
         name: "Spotify"
@@ -189,4 +185,8 @@ var leakSocialMediaAccounts = function(callback) {
 //     domain: "https://www.netflix.com",
 //     redirect: "/Login?nextpage=%2Ffavicon.ico",
 //     name: "Netflix"
-// },
+// },{
+//      domain: "https://www.flickr.com",
+//      redirect: "/signin/yahoo/?redir=https%3A%2F%2Fwww.flickr.com/favicon.ico",
+//      name: "Flickr"
+//   }
