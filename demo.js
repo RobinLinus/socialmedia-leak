@@ -5,7 +5,7 @@ var leakSocialMediaAccounts = function(callback) {
         name: "Square"
     }, {
         domain: "https://twitter.com",
-        redirect: "/login?redirect_after_login=%2Ffavicon.ico",
+        redirect: "/login?redirect_after_login=%2f..%2ffavicon.ico",
         name: "Twitter"
     }, {
         domain: "https://www.facebook.com",
