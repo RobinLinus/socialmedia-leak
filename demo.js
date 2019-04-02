@@ -139,6 +139,7 @@ var leakSocialMediaAccounts = function(callback) {
 
     platforms.forEach(function(network) {
         var img = document.createElement('img');
+        img.referrerPolicy = 'no-referrer';
         img.src = network.domain + network.redirect;
         img.onload = function() {
             callback(network, true);
