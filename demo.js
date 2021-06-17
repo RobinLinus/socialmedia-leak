@@ -7,11 +7,7 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://twitter.com",
         redirect: "/login?redirect_after_login=%2f..%2ffavicon.ico",
         name: "Twitter"
-    }, {
-        domain: "https://www.facebook.com",
-        redirect: "/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico%3F_rdr%3Dp",
-        name: "Facebook"
-    }, {
+    },  {
         domain: "https://accounts.google.com",
         redirect: "/ServiceLogin?passive=true&continue=https%3A%2F%2Fwww.google.com%2Ffavicon.ico&uilel=3&hl=en&service=mail",
         name: "Gmail"
@@ -27,11 +23,7 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://login.skype.com",
         redirect: "/login?message=signin_continue&redirect_uri=https%3A%2F%2Fsecure.skype.com%2Ffavicon.ico",
         name: "Skype"
-    }, {
-        domain: "https://www.spotify.com",
-        redirect: "/en/login/?forward_url=https%3A%2F%2Fwww.spotify.com%2Ffavicon.ico",
-        name: "Spotify"
-    }, {
+    },  {
         domain: "https://www.reddit.com",
         redirect: "/login?dest=https%3A%2F%2Fwww.reddit.com%2Ffavicon.ico",
         name: "Reddit"
@@ -75,11 +67,7 @@ var leakSocialMediaAccounts = function(callback) {
         domain: "https://accounts.google.com",
         redirect: "/ServiceLogin?service=blogger&hl=de&passive=1209600&continue=https://www.blogger.com/favicon.ico",
         name: "Blogger"
-    }, {
-        domain: "https://github.com",
-        redirect: "/login?return_to=https%3A%2F%2Fgithub.com%2Ffavicon.ico%3Fid%3D1",
-        name: "Github"
-    }, {
+    },  {
         domain: "https://medium.com",
         redirect: "/m/signin?redirect=https%3A%2F%2Fmedium.com%2Ffavicon.ico&loginType=default",
         name: "Medium"
